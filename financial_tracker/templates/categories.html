@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Έξοδα ανά Κατηγορία</h2>
+
+    {% if chart %}
+        <div class="mb-3">
+            <img src="data:image/png;base64,{{ chart }}" class="img-fluid" alt="Γράφημα Κατηγοριών">
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Κατηγορία</th>
+                    <th>Ποσό (€)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category, amount in data.items() %}
+                    <tr>
+                        <td>{{ category }}</td>
+                        <td>{{ "%.2f"|format(amount) }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">
+            Δεν υπάρχουν διαθέσιμα δεδομένα για να εμφανιστούν οι κατηγορίες.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

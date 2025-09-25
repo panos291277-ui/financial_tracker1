@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="row w-100">
+        <div class="col-md-6">
+            <div class="card p-4 shadow">
+                <h3 class="card-title text-center mb-3">Σύνδεση Χρήστη</h3>
+                <form method="POST" action="{{ url_for('login') }}">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Όνομα Χρήστη</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Κωδικός</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Σύνδεση</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card p-4 shadow">
+                <h3 class="card-title text-center mb-3">Εγγραφή Χρήστη</h3>
+                <form method="POST" action="{{ url_for('signup') }}">
+                    <div class="mb-3">
+                        <label for="new_username" class="form-label">Όνομα Χρήστη</label>
+                        <input type="text" class="form-control" id="new_username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="new_password" class="form-label">Κωδικός</label>
+                        <input type="password" class="form-control" id="new_password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Εγγραφή</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

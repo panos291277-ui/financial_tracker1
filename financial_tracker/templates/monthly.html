@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Μηνιαία Ανάλυση</h2>
+
+{% if message %}
+    <div class="alert alert-warning">{{ message }}</div>
+{% else %}
+    <div class="text-center">
+        <img src="data:image/png;base64,{{ chart }}" class="img-fluid" alt="Μηνιαία Ανάλυση">
+    </div>
+{% endif %}
+{% endblock %}
